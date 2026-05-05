@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Counter</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-container": "#2170e4",
+                      "on-secondary-fixed-variant": "#304671",
+                      "secondary": "#495e8a",
+                      "on-surface-variant": "#424754",
+                      "surface-container-highest": "#dce2f7",
+                      "on-surface": "#141b2b",
+                      "on-primary": "#ffffff",
+                      "on-secondary-container": "#405682",
+                      "on-primary-container": "#fefcff",
+                      "surface-tint": "#005ac2",
+                      "surface": "#f9f9ff",
+                      "tertiary": "#924700",
+                      "primary-fixed-dim": "#adc6ff",
+                      "on-secondary-fixed": "#001a42",
+                      "inverse-primary": "#adc6ff",
+                      "surface-container-high": "#e1e8fd",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-fixed-variant": "#723600",
+                      "on-primary-fixed-variant": "#004395",
+                      "background": "#f9f9ff",
+                      "tertiary-fixed-dim": "#ffb786",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#edf0ff",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed": "#ffdcc6",
+                      "error": "#ba1a1a",
+                      "secondary-container": "#b6ccff",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-surface": "#293040",
+                      "primary": "#0058be",
+                      "on-tertiary-container": "#fffbff",
+                      "on-background": "#141b2b",
+                      "on-primary-fixed": "#001a42",
+                      "on-tertiary": "#ffffff",
+                      "outline-variant": "#c2c6d6",
+                      "tertiary-container": "#b75b00",
+                      "primary-fixed": "#d8e2ff",
+                      "outline": "#727785",
+                      "surface-container-low": "#f1f3ff",
+                      "secondary-fixed": "#d8e2ff",
+                      "on-tertiary-fixed": "#311400",
+                      "surface-bright": "#f9f9ff",
+                      "secondary-fixed-dim": "#b1c6f9",
+                      "error-container": "#ffdad6",
+                      "surface-container": "#e9edff",
+                      "surface-dim": "#d3daef",
+                      "surface-variant": "#dce2f7"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "8px",
+                      "section-gap": "64px",
+                      "button-group": "24px",
+                      "container-padding": "40px"
+              },
+              "fontFamily": {
+                      "button-label": [
+                              "Inter"
+                      ],
+                      "counter-display": [
+                              "Inter"
+                      ],
+                      "utility-label": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "button-label": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "counter-display": [
+                              "120px",
+                              {
+                                      "lineHeight": "120px",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "utility-label": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface text-on-surface h-screen w-screen overflow-hidden flex flex-col antialiased selection:bg-primary-container selection:text-on-primary-container">
+<main class="flex-1 flex flex-col items-center justify-center w-full px-container-padding">
+<div class="flex flex-col items-center justify-center w-full max-w-sm">
+<div id="counter-display" class="font-counter-display text-counter-display text-on-surface tabular-nums tracking-tighter select-none flex items-center justify-center w-full">
+                0
+            </div>
+<div class="h-section-gap w-full flex-shrink-0"></div>
+<div class="flex items-center justify-center gap-button-group w-full">
+<button id="decrement-btn" aria-label="Decrease count" class="group relative w-20 h-20 sm:w-24 sm:h-24 rounded-full border border-outline flex items-center justify-center bg-transparent text-on-surface hover:bg-surface-container-high transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface active:scale-95 touch-manipulation" type="button">
+<span class="material-symbols-outlined transition-transform duration-200 group-active:scale-90" style="font-size: 36px; font-variation-settings: 'wght' 300;">
+                        remove
+                    </span>
+</button>
+<button id="increment-btn" aria-label="Increase count" class="group relative w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-primary flex items-center justify-center text-on-primary hover:opacity-90 transition-opacity duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface active:scale-95 touch-manipulation" type="button">
+<span class="material-symbols-outlined transition-transform duration-200 group-active:scale-90" style="font-size: 36px; font-variation-settings: 'wght' 400;">
+                        add
+                    </span>
+</button>
+</div>
+</div>
+</main>
+<script>
+(function() {
+    let count = 0;
+
+    const display = document.getElementById('counter-display');
+    const decrementBtn = document.getElementById('decrement-btn');
+    const incrementBtn = document.getElementById('increment-btn');
+
+    function updateDisplay() {
+        display.textContent = count;
+    }
+
+    incrementBtn.addEventListener('click', function() {
+        count++;
+        updateDisplay();
+    });
+
+    decrementBtn.addEventListener('click', function() {
+        count--;
+        updateDisplay();
+    });
+})();
+</script>
+</body></html>
